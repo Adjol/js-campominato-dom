@@ -4,12 +4,16 @@
 // let playBtn = document.getElementById("play")
 let griglia = document.querySelector(".grid");
 
+let punteggioMax = 0;
+
+
 let casualNums = [];
 for (let j = 0; j <16; j++) {
     let fire = Math.floor(Math.random() *100) +1;
     casualNums.push(fire);
 }
 console.log(casualNums);
+
 
 for (let i=1; i<=100; i++) {
 
@@ -30,31 +34,26 @@ for (let i=1; i<=100; i++) {
     quadro.addEventListener("click",
     
     function(){
+        if ( casualNums.includes(i) ) {
+            quadro.className = "bomb_square";
+            console.log("Bomba!");
+            alert("Hai preso una Bomba")
+        } else {
+            quadro.className = ("clicked_square");
+            console.log(i);
+            punteggioMax += 1;
 
-        quadro.className = ("clicked_square");
-        console.log(i);
+            let punteggio = document.querySelector(".punti")
+            punteggio.innerHTML="il tuo punteggio attuale è: " + punteggioMax;
+
+        }
+
+
         
        
 
 
     });
-    let indice = cellNums.indexOf(i);
-
-    if (casualNums.includes(i)) {
-        quadro.addEventListener("click",
-    
-        function(){
-        
-            quadro.className = "bomb_square";
-            console.log("Bomba!");
-        
-        
-        
-        
-        });
-    
-    };
-
 };
 
 
