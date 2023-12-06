@@ -4,7 +4,12 @@
 // let playBtn = document.getElementById("play")
 let griglia = document.querySelector(".grid");
 
-
+let casualNums = [];
+for (let j = 0; j <16; j++) {
+    let fire = Math.floor(Math.random() *100) +1;
+    casualNums.push(fire);
+}
+console.log(casualNums);
 
 for (let i=1; i<=100; i++) {
 
@@ -33,7 +38,22 @@ for (let i=1; i<=100; i++) {
 
 
     });
+    let indice = cellNums.indexOf(i);
 
+    if (casualNums.includes(i)) {
+        quadro.addEventListener("click",
+    
+        function(){
+        
+            quadro.className = "bomb_square";
+            console.log("Bomba!");
+        
+        
+        
+        
+        });
+    
+    };
 
 };
 
@@ -43,26 +63,8 @@ for (let i=1; i<=100; i++) {
 //In seguito l’utente clicca su una cella: se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la partita termina.
 // Altrimenti la cella cliccata si colora di azzurro e l’utente può continuare a cliccare sulle altre celle.
 
-let casualNums = [];
-for (let j = 0; j <16; j++) {
-    let fire = Math.floor(Math.random() *100) +1;
-    casualNums.push(fire);
-}
-console.log(casualNums);
 
-if (cellNums[i] === casualNums[i]) {
-    quadro.addEventListener("click",
 
-    function(){
-    
-        quadro.className = ("bomb_square");
-        console.log(i);
-    
-    
-    
-    
-    });
 
-};
 
 
